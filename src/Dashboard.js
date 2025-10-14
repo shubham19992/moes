@@ -13,6 +13,7 @@ import Image12 from "./image 3012.png";
 import Map from "./Fishing Zone 2.png";
 import LogoSvg from "./logo.png";
 import LicenceUser from "./lineicons_user-4.png";
+import { useNavigate } from "react-router-dom";
 const MinistryHeader = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -38,7 +39,12 @@ const MinistryHeader = () => {
     ]);
 
     const [inputMessage, setInputMessage] = useState('');
+ const navigate = useNavigate();
 
+  const handleClick = () => {
+    // Navigate to the dashboard route
+    navigate("/dashboard");
+  };
     const toggleChat = () => {
         setIsChatOpen(!isChatOpen);
     };
@@ -329,7 +335,7 @@ const MinistryHeader = () => {
                         coastal zones within India’s legal jurisdiction, aiding the production of goods & services
                         with clear linkages to economic growth, environmental sustainability, and national security.
                     </p>
-                    <button className="view-event"><img src={Fluent} />View Dashboard</button>
+                    <button className="view-event" onClick={handleClick}><img src={Fluent} />View Dashboard</button>
                 </div>
 
                 <div className="map-section">
