@@ -43,7 +43,7 @@ const MinistryHeader = () => {
 
   const handleClick = () => {
     // Navigate to the dashboard route
-    navigate("/dashboard");
+    navigate("https://app.powerbi.com/view?r=eyJrIjoiMDQ4YWIzZmItNTg4NC00YzE0LTkxYTUtOWQxZDRjN2ZjOWQ1IiwidCI6IjkzMjE3NDM4LWFhMjUtNDkyNS1hMTVlLTg5OTA4NjI1MzM5ZSJ9");
   };
     const toggleChat = () => {
         setIsChatOpen(!isChatOpen);
