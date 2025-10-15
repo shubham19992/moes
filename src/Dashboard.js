@@ -18,24 +18,6 @@ const MinistryHeader = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [messages, setMessages] = useState([
-        {
-            id: 1,
-            text: "720",
-            subtext: "Port with maximum export quantity",
-            isUser: false
-        },
-        {
-            id: 2,
-            text: "720",
-            subtext: "Vizag port recorded export of 2,64,214 LT in 2022-23",
-            isUser: false
-        },
-        {
-            id: 3,
-            text: "720",
-            subtext: "Purpose of MoES?",
-            isUser: false
-        }
     ]);
 
     const [inputMessage, setInputMessage] = useState('');
@@ -48,29 +30,87 @@ const handleClick = () => {
         setIsChatOpen(!isChatOpen);
     };
 
-    const handleSendMessage = (e) => {
-        e.preventDefault();
-        if (inputMessage.trim()) {
-            const newMessage = {
-                id: messages.length + 1,
-                text: inputMessage,
-                isUser: true
-            };
-            setMessages([...messages, newMessage]);
-            setInputMessage('');
+    // const handleSendMessage = (e) => {
+    //     e.preventDefault();
+    //     if (inputMessage.trim()) {
+    //         const newMessage = {
+    //             id: messages.length + 1,
+    //             text: inputMessage,
+    //             isUser: true
+    //         };
+    //         setMessages([...messages, newMessage]);
+    //         setInputMessage('');
 
-            // Simulate bot response after 1 second
-            setTimeout(() => {
-                const botResponse = {
-                    id: messages.length + 2,
-                    text: "Thank you for your message",
-                    subtext: "Our team will get back to you soon",
-                    isUser: false
-                };
-                setMessages(prev => [...prev, botResponse]);
-            }, 1000);
-        }
+    //         // Simulate bot response after 1 second
+    //         setTimeout(() => {
+    //             const botResponse = {
+    //                 id: messages.length + 2,
+    //                 text: "Thank you for your message",
+    //                 subtext: "Our team will get back to you soon",
+    //                 isUser: false
+    //             };
+    //             setMessages(prev => [...prev, botResponse]);
+    //         }, 1000);
+    //     }
+    // };
+   const handleSendMessage = async (e) => {
+  e.preventDefault();
+  if (!inputMessage.trim()) return;
+
+  const newMessage = {
+    id: messages.length + 1,
+    text: inputMessage,
+    isUser: true,
+  };
+
+  // Immediately show user message
+  setMessages([...messages, newMessage]);
+  setInputMessage('');
+
+  try {
+    // Call your chatbot API
+    const response = await fetch('http://20.235.183.80/chatbot/query', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ question: inputMessage }),
+    });
+
+    const data = await response.json();
+
+    // Construct readable bot reply using API response
+    let botText = '';
+    if (data.answer) {
+      botText = `${data.answer}`;
+      if (data.breakdown) {
+        const { inland, marine, total, state, year } = data.breakdown;
+        botText += `\n\n📊 Breakdown:\n- Inland: ${inland}\n- Marine: ${marine}\n- Total: ${total}\n- State: ${state}\n- Year: ${year}`;
+      }
+    } else {
+      botText = "Sorry, I couldn’t find relevant information.";
+    }
+
+    const botResponse = {
+      id: messages.length + 2,
+      text: botText,
+      subtext: data.source ? `Source: ${data.source}` : null,
+      isUser: false,
     };
+
+    setMessages((prev) => [...prev, botResponse]);
+  } catch (error) {
+    console.error('Error fetching chatbot response:', error);
+    const errorMessage = {
+      id: messages.length + 2,
+      text: 'Sorry, something went wrong. Please try again later.',
+      isUser: false,
+    };
+    setMessages((prev) => [...prev, errorMessage]);
+  }
+};
+
+   
     const handleSearch = (e) => {
         e.preventDefault();
         // Handle search functionality here

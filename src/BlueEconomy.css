@@ -732,6 +732,13 @@ cursor: pointer;
 
 .highlight {
     font-weight: bold;
+     font-family: 'Lexend', sans-serif;
+    /* Light */
+    font-style: normal;
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #282828;
 }
 
 .description {
