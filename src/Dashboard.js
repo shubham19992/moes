@@ -4,7 +4,7 @@ import './BlueEconomy.css';
 import Logo from "./Vector.png";
 import Vector from "./Vector (1).png";
 import Group from "./Group 4.png";
-import Hero from "./hero 1.png";
+import Hero from "./assets/video.mp4";
 import HeroTwo from "./hero 2.png";
 import GroupImage from "./Group 1321315070.png";
 import Fluent from "./fluent-mdl2_navigate-external-inline.png";
@@ -13,6 +13,8 @@ import Image12 from "./image 3012.png";
 import Map from "./Fishing Zone 2.png";
 import LogoSvg from "./logo.png";
 import LicenceUser from "./lineicons_user-4.png";
+import InstitutesGrid from './Institution';
+import OceanCards from './CardSection';
 
 const MinistryHeader = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -21,10 +23,10 @@ const MinistryHeader = () => {
     ]);
 
     const [inputMessage, setInputMessage] = useState('');
-const handleClick = () => {
-  // Redirect to the dashboard URL
-  window.location.href = "https://app.powerbi.com/view?r=eyJrIjoiMDQ4YWIzZmItNTg4NC00YzE0LTkxYTUtOWQxZDRjN2ZjOWQ1IiwidCI6IjkzMjE3NDM4LWFhMjUtNDkyNS1hMTVlLTg5OTA4NjI1MzM5ZSJ9";
-};
+    const handleClick = () => {
+        // Redirect to the dashboard URL
+        window.location.href = "https://app.powerbi.com/view?r=eyJrIjoiMDQ4YWIzZmItNTg4NC00YzE0LTkxYTUtOWQxZDRjN2ZjOWQ1IiwidCI6IjkzMjE3NDM4LWFhMjUtNDkyNS1hMTVlLTg5OTA4NjI1MzM5ZSJ9";
+    };
 
     const toggleChat = () => {
         setIsChatOpen(!isChatOpen);
@@ -53,64 +55,64 @@ const handleClick = () => {
     //         }, 1000);
     //     }
     // };
-   const handleSendMessage = async (e) => {
-  e.preventDefault();
-  if (!inputMessage.trim()) return;
+    const handleSendMessage = async (e) => {
+        e.preventDefault();
+        if (!inputMessage.trim()) return;
 
-  const newMessage = {
-    id: messages.length + 1,
-    text: inputMessage,
-    isUser: true,
-  };
+        const newMessage = {
+            id: messages.length + 1,
+            text: inputMessage,
+            isUser: true,
+        };
 
-  // Immediately show user message
-  setMessages([...messages, newMessage]);
-  setInputMessage('');
+        // Immediately show user message
+        setMessages([...messages, newMessage]);
+        setInputMessage('');
 
-  try {
-    // Call your chatbot API
-    const response = await fetch('http://20.235.183.80/chatbot/query', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ question: inputMessage }),
-    });
+        try {
+            // Call your chatbot API
+            const response = await fetch('http://20.235.183.80/chatbot/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question: inputMessage }),
+            });
 
-    const data = await response.json();
+            const data = await response.json();
 
-    // Construct readable bot reply using API response
-    let botText = '';
-    if (data.answer) {
-      botText = `${data.answer}`;
-      if (data.breakdown) {
-        const { inland, marine, total, state, year } = data.breakdown;
-        botText += `\n\n📊 Breakdown:\n- Inland: ${inland}\n- Marine: ${marine}\n- Total: ${total}\n- State: ${state}\n- Year: ${year}`;
-      }
-    } else {
-      botText = "Sorry, I couldn’t find relevant information.";
-    }
+            // Construct readable bot reply using API response
+            let botText = '';
+            if (data.answer) {
+                botText = `${data.answer}`;
+                if (data.breakdown) {
+                    const { inland, marine, total, state, year } = data.breakdown;
+                    botText += `\n\n📊 Breakdown:\n- Inland: ${inland}\n- Marine: ${marine}\n- Total: ${total}\n- State: ${state}\n- Year: ${year}`;
+                }
+            } else {
+                botText = "Sorry, I couldn’t find relevant information.";
+            }
 
-    const botResponse = {
-      id: messages.length + 2,
-      text: botText,
-      subtext: data.source ? `Source: ${data.source}` : null,
-      isUser: false,
+            const botResponse = {
+                id: messages.length + 2,
+                text: botText,
+                subtext: data.source ? `Source: ${data.source}` : null,
+                isUser: false,
+            };
+
+            setMessages((prev) => [...prev, botResponse]);
+        } catch (error) {
+            console.error('Error fetching chatbot response:', error);
+            const errorMessage = {
+                id: messages.length + 2,
+                text: 'Sorry, something went wrong. Please try again later.',
+                isUser: false,
+            };
+            setMessages((prev) => [...prev, errorMessage]);
+        }
     };
 
-    setMessages((prev) => [...prev, botResponse]);
-  } catch (error) {
-    console.error('Error fetching chatbot response:', error);
-    const errorMessage = {
-      id: messages.length + 2,
-      text: 'Sorry, something went wrong. Please try again later.',
-      isUser: false,
-    };
-    setMessages((prev) => [...prev, errorMessage]);
-  }
-};
 
-   
     const handleSearch = (e) => {
         e.preventDefault();
         // Handle search functionality here
@@ -124,34 +126,7 @@ const handleClick = () => {
                     <div className="container">
                         <div className="header-main-content">
                             <div className="logo-section">
-                                {/* <div className="emblem">
-                <div className="emblem-circle">
-                  <div className="emblem-inner">
-                    <div className="ashoka-chakra">
-                      <div className="chakra-wheel">
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                        <div className="spoke"></div>
-                      </div>
-                    </div>
-                    <div className="emblem-lions">
-                      <div className="lion"></div>
-                      <div className="lion"></div>
-                      <div className="lion"></div>
-                      <div className="lion"></div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+
                                 <img src={Logo} alt="Ministry Logo" className="ministry-logo" />
                                 <div className="ministry-info">
                                     <span className="ministry-name">Ministry of Earth Sciences</span>
@@ -159,23 +134,7 @@ const handleClick = () => {
                                 </div>
                             </div>
 
-                            <div className="search-section">
-                                <form className="search-form" onSubmit={handleSearch}>
-                                    <div className="search-input-container">
-                                        <button type="submit" className="search-button">
-                                            <span className="search-icon">Q</span>
-                                        </button>
-                                        <input
-                                            type="text"
-                                            className="search-input"
-                                            placeholder="Search"
-                                            value={searchQuery}
-                                            onChange={(e) => setSearchQuery(e.target.value)}
-                                        />
 
-                                    </div>
-                                </form>
-                            </div>
                             <div className="header-container">
                                 <span className="login-text">Login</span>
                                 <div className="divider"></div>
@@ -215,14 +174,34 @@ const handleClick = () => {
 
                             <li className="nav-item"><a href="#" className="nav-link">Publications</a></li>
                             <li className="nav-item"><a href="#" className="nav-link">Media</a></li>
-                            <li className="nav-item"><a href="#" className="nav-link">Contact Us</a></li>
+                            <li className="nav-item"><a href="https://app.powerbi.com/view?r=eyJrIjoiMDQ4YWIzZmItNTg4NC00YzE0LTkxYTUtOWQxZDRjN2ZjOWQ1IiwidCI6IjkzMjE3NDM4LWFhMjUtNDkyNS1hMTVlLTg5OTA4NjI1MzM5ZSJ9" className="nav-link">Dashboard</a></li>
+                            <li className="nav-item" style={{ alignItems: "center", display: "flex", marginLeft: "auto" }}>
+
+                                <div className="search-section">
+                                    <form className="search-form" onSubmit={handleSearch}>
+                                        <div className="search-input-container">
+                                            <button type="submit" className="search-button">
+                                                <span className="search-icon">Q</span>
+                                            </button>
+                                            <input
+                                                type="text"
+                                                className="search-input"
+                                                placeholder="Search"
+                                                value={searchQuery}
+                                                onChange={(e) => setSearchQuery(e.target.value)}
+                                            />
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
 
             </header>
 
-            <div className="hero-section" style={{
+            {/* <div className="hero-section" style={{
                 background: `url('${Hero}')`,
                 height: '500px',
                 width: '100%',
@@ -244,7 +223,54 @@ const handleClick = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <div
+  className="hero-section"
+  style={{
+    position: "relative",
+    height: "500px",
+    width: "100%",
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: "20",
+  }}
+>
+  {/* Background video */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      zIndex: "-1",
+    }}
+  >
+    <source src={Hero} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  {/* Hero content */}
+  <div className="hero-container" style={{ textAlign: "center", color: "white", padding: "0 20px" }}>
+    <div className="hero-content">
+      <div className="hero-title" style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "15px" }}>
+        Exploring India's Blue Economy
+      </div>
+      <div className="hero-subtitle" style={{ fontSize: "18px", lineHeight: "1.5" }}>
+        Sustainable development of ocean resources for economic growth, improved livelihoods,
+        and ocean ecosystem health
+      </div>
+    </div>
+  </div>
+</div>
+
             <div className="hero-section" style={{
                 background: `url('${HeroTwo}')`,
                 height: '500px',
@@ -346,6 +372,7 @@ const handleClick = () => {
                         It also anchors international collaborations on ocean science and governance.
                     </p>
                 </div>
+               
                 <div className="minister-container">
                     <div className="minister-card">
                         <img src={Image10} alt="Dr. Jitendra Singh" className="minister-img" />
@@ -363,7 +390,10 @@ const handleClick = () => {
                         </div>
                     </div>
                 </div>
-
+                </div>
+                <InstitutesGrid />
+                <OceanCards />
+                <div className="appDDAshboard">
                 <div className="blue-economy">
                     <h3 className="blue-economy-title">
                         🌊 India’s <span className="highlight">Blue Economy</span>
@@ -374,7 +404,7 @@ const handleClick = () => {
                         coastal zones within India’s legal jurisdiction, aiding the production of goods & services
                         with clear linkages to economic growth, environmental sustainability, and national security.
                     </p>
-                    <button className="view-event"  onClick={handleClick}><img src={Fluent} />View Dashboard</button>
+                    <button className="view-event" onClick={handleClick}><img src={Fluent} />View Dashboard</button>
                 </div>
 
                 <div className="map-section">

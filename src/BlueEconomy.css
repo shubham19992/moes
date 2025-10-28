@@ -1,5 +1,9 @@
 /* MinistryHeader.css */
 .ministry-header {
+      position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
     font-family: Arial, sans-serif;
     background-color: white;
 }
@@ -292,7 +296,7 @@
     background-color: #1B038D;
     border-bottom: 1px solid #ddd;
     font-family: Arial, sans-serif;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .nav-menu {
