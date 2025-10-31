@@ -121,7 +121,7 @@ const MinistryHeader = () => {
 
     return (
         <>
-            <header className="ministry-header" style={{fontFamily:"Lexend"}}>
+            <header className="ministry-header" style={{ fontFamily: "Lexend" }}>
                 <div className="header-main">
                     <div className="container">
                         <div className="header-main-content">
@@ -158,9 +158,13 @@ const MinistryHeader = () => {
                             <li className="nav-item dropdown">
                                 <a href="#" className="nav-link">Blue Economy Sectors ▾</a>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
+                                    <li style={{textDecoration:"none"}}><a href="#"> Marine Living Resources</a></li>
+
+                                    <li style={{textDecoration:"none"}}><a href="#">Marine Non-Living Resources</a></li>
+                                    <li style={{textDecoration:"none"}}><a href="#">Maritime Transport and Shipping</a></li>
+                                    <li style={{textDecoration:"none"}}><a href="#">Offshore Renewable Energy</a></li>
+                                    <li style={{textDecoration:"none"}}><a href="#">Coastal Tourism and Heritage Conservation</a> </li>
+
                                 </ul>
                             </li>
 
@@ -271,7 +275,7 @@ const MinistryHeader = () => {
 
                 {/* Hero content */}
                 <div className="hero-container" style={{ textAlign: "center", color: "white", padding: "0 20px" }}>
-                    <div className="hero-content" style={{width:"629px",marginTop:"20px"}}>
+                    <div className="hero-content" style={{ width: "629px", marginTop: "20px" }}>
                         <div className="hero-title" style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "15px" }}>
                             Exploring India's Blue Economy
                         </div>
@@ -375,7 +379,7 @@ const MinistryHeader = () => {
                     {/* <h2 className="heading">
                         Ministry of
                     </h2> */}
-                    <span className="heading" style={{color:"#06038D"}}>  Ministry of {" "}<span className="highlight" style={{color:"#06038D"}}>Earth Sciences</span></span>
+                    <span className="heading" style={{ color: "#06038D" }}>  Ministry of {" "}<span className="highlight" style={{ color: "#06038D" }}>Earth Sciences</span></span>
                     <p className="description">
                         MoES is the nodal body driving scientific research & policy for India’s Blue Economy.
                         It leads ocean observation, data forecasting, and resource mapping through missions like the Deep Ocean Mission.
@@ -403,29 +407,29 @@ const MinistryHeader = () => {
                     </div>
                 </div>
             </div>
-              <div className="appDDAshboard">
-                       <div className="map-section">
+            <div className="appDDAshboard">
+                <div className="map-section">
 
                     <img src={Map} alt="Fishing Zone Map" className="map-img" />
                 </div>
                 <div className="blue-economy">
-                    <h3 className="blue-economy-title" style={{color:"#06038D"}}>
-                        🌊 India’s <span className="highlight" style={{color:"#06038D"}}>Blue Economy</span>
-                    </h3>
-                    <button className="view-event" onClick={handleClick}><img src={Fluent} />View Dashboard</button>
-                    <p style={{ color: "#00A6ED" }}>
+                    <span className="blue-economy-title" style={{ color: "#06038D", marginBottom: "20px" }}>
+                        🌊 India’s <span className="highlight" style={{ color: "#06038D" }}>Blue Economy</span>
+                    </span>
+                    <button className="view-event" style={{ marginTop: "20px" }} onClick={handleClick}><img src={Fluent} />View Dashboard</button>
+                    <p style={{ color: "black" }}>
                         India’s blue economy is a subset of the national economy comprising the entire ecosystem
                         of ocean resources and man-made economic infrastructure in marine, maritime, and on-shore
                         coastal zones within India’s legal jurisdiction, aiding the production of goods & services
                         with clear linkages to economic growth, environmental sustainability, and national security.
                     </p>
-                    
+
                 </div>
 
-         
+
             </div>
-            <StatsAtAGlance/>
-          
+            <StatsAtAGlance />
+
             <OceanCards />
             <InstitutesGrid />
             <footer className="footer">
