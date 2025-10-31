@@ -53,7 +53,13 @@ const InstitutesGrid = () => {
     color: "#004a64",
     lineHeight: "1.4",
   };
-
+  const titleStyles = {
+    fontSize: "24px",
+    fontWeight: "bold",
+    color: "#08149c",
+    marginBottom: "30px",
+    textAlign: "center",
+  };
   const handleMouseEnter = (e) => {
     e.currentTarget.style.transform = "scale(1.03)";
     e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
@@ -65,6 +71,8 @@ const InstitutesGrid = () => {
   };
 
   return (
+    <>
+      <h2 style={titleStyles}>Our Partners</h2>
     <div style={containerStyle}>
       {institutes.map((inst, index) => (
         <div
@@ -78,6 +86,7 @@ const InstitutesGrid = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

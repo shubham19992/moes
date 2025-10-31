@@ -1,9 +1,9 @@
 /* MinistryHeader.css */
 .ministry-header {
-      position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
     font-family: Arial, sans-serif;
     background-color: white;
 }
@@ -684,7 +684,7 @@
 .view-event {
     width: 136px;
     height: 40px;
-    position: absolute;
+    /* position: absolute; */
     /* needed for top/left to work */
     opacity: 1;
     border-width: 1px;
@@ -692,15 +692,26 @@
     /* you need a border-style */
     border-radius: 6px;
     transform: rotate(0deg);
-    border: 1px solid #00383E;
+    border: 1px solid #1B038D;
     display: flex;
     align-items: center;
     justify-content: center;
-cursor: pointer;
-
+    cursor: pointer;
+    color: #1B038D;
+    background: none;
 }
 
 
+.updateColor {
+    /* font-family: Inter; */
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+margin-top: 20px;
+color: #777777;
+}
 
 .image img {
     max-width: 100%;
@@ -728,7 +739,7 @@ cursor: pointer;
     font-weight: 300;
     /* Light */
     font-style: normal;
-    font-size: 40px;
+    font-size: 24px;
     line-height: 40px;
     letter-spacing: 0;
     color: #282828;
@@ -736,10 +747,10 @@ cursor: pointer;
 
 .highlight {
     font-weight: bold;
-     font-family: 'Lexend', sans-serif;
+    font-family: 'Lexend', sans-serif;
     /* Light */
     font-style: normal;
-    font-size: 40px;
+    font-size: 24px;
     line-height: 40px;
     letter-spacing: 0;
     color: #282828;
@@ -755,10 +766,10 @@ cursor: pointer;
 .minister-container {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 140px;
+    margin-top: 60px;
     padding-left: 200px;
 
 }
@@ -812,7 +823,7 @@ cursor: pointer;
     /* Light */
     font-style: normal;
     /* font-style cannot be "Light" */
-    font-size: 30px;
+    font-size: 24px;
     line-height: 40px;
     letter-spacing: 0;
     color: #00A6ED;

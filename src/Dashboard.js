@@ -7,7 +7,7 @@ import Group from "./Group 4.png";
 import Hero from "./assets/video.mp4";
 import HeroTwo from "./hero 2.png";
 import GroupImage from "./Group 1321315070.png";
-import Fluent from "./fluent-mdl2_navigate-external-inline.png";
+import Fluent from "./assets/arrow.png";
 import Image10 from "./image 3010.png";
 import Image12 from "./image 3012.png";
 import Map from "./Fishing Zone 2.png";
@@ -15,7 +15,7 @@ import LogoSvg from "./logo.png";
 import LicenceUser from "./lineicons_user-4.png";
 import InstitutesGrid from './Institution';
 import OceanCards from './CardSection';
-
+import StatsAtAGlance from './Start';
 const MinistryHeader = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -121,7 +121,7 @@ const MinistryHeader = () => {
 
     return (
         <>
-            <header className="ministry-header">
+            <header className="ministry-header" style={{fontFamily:"Lexend"}}>
                 <div className="header-main">
                     <div className="container">
                         <div className="header-main-content">
@@ -156,24 +156,36 @@ const MinistryHeader = () => {
                             </li>
 
                             <li className="nav-item dropdown">
-                                <a href="#" className="nav-link">About Us ▾</a>
+                                <a href="#" className="nav-link">Blue Economy Sectors ▾</a>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#">Our Mission</a></li>
-                                    <li><a href="#">Team</a></li>
-                                    <li><a href="#">History</a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
                                 </ul>
                             </li>
 
                             <li className="nav-item dropdown">
-                                <a href="#" className="nav-link">Services ▾</a>
+                                <a href="#" className="nav-link">Policy ▾</a>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#">Consulting</a></li>
-                                    <li><a href="#">Training</a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                </ul>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a href="#" className="nav-link">Publications ▾</a>
+                                <ul className="dropdown-menu">
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
                                 </ul>
                             </li>
 
-                            <li className="nav-item"><a href="#" className="nav-link">Publications</a></li>
-                            <li className="nav-item"><a href="#" className="nav-link">Media</a></li>
+                            <li className="nav-item dropdown">
+                                <a href="#" className="nav-link">Reports ▾</a>
+                                <ul className="dropdown-menu">
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                </ul>
+                            </li>
                             <li className="nav-item"><a href="https://app.powerbi.com/view?r=eyJrIjoiMDQ4YWIzZmItNTg4NC00YzE0LTkxYTUtOWQxZDRjN2ZjOWQ1IiwidCI6IjkzMjE3NDM4LWFhMjUtNDkyNS1hMTVlLTg5OTA4NjI1MzM5ZSJ9" className="nav-link">Dashboard</a></li>
                             <li className="nav-item" style={{ alignItems: "center", display: "flex", marginLeft: "auto" }}>
 
@@ -225,51 +237,51 @@ const MinistryHeader = () => {
                 </div>
             </div> */}
             <div
-  className="hero-section"
-  style={{
-    position: "relative",
-    height: "500px",
-    width: "100%",
-    overflow: "hidden",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: "20",
-  }}
->
-  {/* Background video */}
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    style={{
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      zIndex: "-1",
-    }}
-  >
-    <source src={Hero} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+                className="hero-section"
+                style={{
+                    position: "relative",
+                    height: "500px",
+                    width: "100%",
+                    overflow: "hidden",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: "20",
+                }}
+            >
+                {/* Background video */}
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        zIndex: "-1",
+                    }}
+                >
+                    <source src={Hero} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
 
-  {/* Hero content */}
-  <div className="hero-container" style={{ textAlign: "center", color: "white", padding: "0 20px" }}>
-    <div className="hero-content">
-      <div className="hero-title" style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "15px" }}>
-        Exploring India's Blue Economy
-      </div>
-      <div className="hero-subtitle" style={{ fontSize: "18px", lineHeight: "1.5" }}>
-        Sustainable development of ocean resources for economic growth, improved livelihoods,
-        and ocean ecosystem health
-      </div>
-    </div>
-  </div>
-</div>
+                {/* Hero content */}
+                <div className="hero-container" style={{ textAlign: "center", color: "white", padding: "0 20px" }}>
+                    <div className="hero-content" style={{width:"629px",marginTop:"20px"}}>
+                        <div className="hero-title" style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "15px" }}>
+                            Exploring India's Blue Economy
+                        </div>
+                        <div className="hero-subtitle" style={{ fontSize: "18px", lineHeight: "1.5" }}>
+                            Sustainable development of ocean resources for economic growth, improved livelihoods,
+                            and ocean ecosystem health
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div className="hero-section" style={{
                 background: `url('${HeroTwo}')`,
@@ -305,7 +317,7 @@ const MinistryHeader = () => {
                 <div className="chat-widget-container">
                     <div className="chat-header">
                         <div className="header-content">
-                            <h2>MoES Bot</h2>
+                            <h2>Blue Bot</h2>
                             <button className="close-button" onClick={toggleChat}>
                                 ×
                             </button>
@@ -360,10 +372,10 @@ const MinistryHeader = () => {
             )}
             <div className="appDDAshboard">
                 <div>
-                    <h2 className="heading">
+                    {/* <h2 className="heading">
                         Ministry of
-                    </h2>
-                    <span className="highlight">Earth Sciences</span>
+                    </h2> */}
+                    <span className="heading" style={{color:"#06038D"}}>  Ministry of {" "}<span className="highlight" style={{color:"#06038D"}}>Earth Sciences</span></span>
                     <p className="description">
                         MoES is the nodal body driving scientific research & policy for India’s Blue Economy.
                         It leads ocean observation, data forecasting, and resource mapping through missions like the Deep Ocean Mission.
@@ -372,7 +384,7 @@ const MinistryHeader = () => {
                         It also anchors international collaborations on ocean science and governance.
                     </p>
                 </div>
-               
+
                 <div className="minister-container">
                     <div className="minister-card">
                         <img src={Image10} alt="Dr. Jitendra Singh" className="minister-img" />
@@ -390,28 +402,32 @@ const MinistryHeader = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+              <div className="appDDAshboard">
+                       <div className="map-section">
+
+                    <img src={Map} alt="Fishing Zone Map" className="map-img" />
                 </div>
-                <InstitutesGrid />
-                <OceanCards />
-                <div className="appDDAshboard">
                 <div className="blue-economy">
-                    <h3 className="blue-economy-title">
-                        🌊 India’s <span className="highlight">Blue Economy</span>
+                    <h3 className="blue-economy-title" style={{color:"#06038D"}}>
+                        🌊 India’s <span className="highlight" style={{color:"#06038D"}}>Blue Economy</span>
                     </h3>
+                    <button className="view-event" onClick={handleClick}><img src={Fluent} />View Dashboard</button>
                     <p style={{ color: "#00A6ED" }}>
                         India’s blue economy is a subset of the national economy comprising the entire ecosystem
                         of ocean resources and man-made economic infrastructure in marine, maritime, and on-shore
                         coastal zones within India’s legal jurisdiction, aiding the production of goods & services
                         with clear linkages to economic growth, environmental sustainability, and national security.
                     </p>
-                    <button className="view-event" onClick={handleClick}><img src={Fluent} />View Dashboard</button>
+                    
                 </div>
 
-                <div className="map-section">
-
-                    <img src={Map} alt="Fishing Zone Map" className="map-img" />
-                </div>
+         
             </div>
+            <StatsAtAGlance/>
+          
+            <OceanCards />
+            <InstitutesGrid />
             <footer className="footer">
                 <div className="footer-content">
                     <div className="footer-left">
